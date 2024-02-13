@@ -24,6 +24,7 @@ const loginUserService = async (payload: ILoginUser) => {
   const jwtPayload = {
     email: user.email,
     name: user.name,
+    role: user.role,
   };
 
   const accessToken = createToken(

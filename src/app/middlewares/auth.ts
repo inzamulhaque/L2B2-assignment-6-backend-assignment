@@ -5,8 +5,9 @@ import httpStatus from "http-status";
 import { JwtPayload } from "jsonwebtoken";
 import User from "../modules/user/user.model";
 import verifyJWT from "../utils/verifyJWT";
+import { TUserRole } from "../modules/user/user.interface";
 
-const auth = () => {
+const auth = (...requiredRoles: TUserRole[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.authorization;
 
@@ -18,7 +19,11 @@ const auth = () => {
     // checking if the given token is valid
     const decoded = (await verifyJWT(token)) as JwtPayload;
 
-    const { email, name, iat } = decoded;
+    const { email, role } = decoded;
+
+    if (requiredRoles && !requiredRoles.includes(role)) {
+      throw new AppError(httpStatus.UNAUTHORIZED, "You are not authorized !");
+    }
 
     // checking if the user is exist
     const user = await User.isUserExistByEmail(email);

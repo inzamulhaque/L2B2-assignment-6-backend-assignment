@@ -11,23 +11,42 @@ import {
   removeBulk,
   updateBike,
 } from "./bike.controller";
+import { USER_ROLE } from "../user/user.constant";
 
 const router: Router = Router();
 
-router.get("/", auth(), getAllBikes);
+router.get(
+  "/",
+  auth(USER_ROLE.seller, USER_ROLE.admin, USER_ROLE.buyer),
+  getAllBikes
+);
 
-router.post("/", auth(), validateRequest(bikeValidationSchema), createBike);
+router.post(
+  "/",
+  auth(USER_ROLE.seller),
+  validateRequest(bikeValidationSchema),
+  createBike
+);
 
-router.delete("/remove-bike/:id", auth(), removeBike);
+router.delete(
+  "/remove-bike/:id",
+  auth(USER_ROLE.seller, USER_ROLE.admin),
+  removeBike
+);
 
 router.patch(
   "/update-bike/:id",
   auth(),
   validateRequest(updateBikeValidationSchema),
+  auth(USER_ROLE.seller, USER_ROLE.admin),
   updateBike
 );
 
-router.delete("/bulk-remove", auth(), removeBulk);
+router.delete(
+  "/bulk-remove",
+  auth(USER_ROLE.seller, USER_ROLE.admin),
+  removeBulk
+);
 
 const bikeRouter = router;
 export default bikeRouter;
