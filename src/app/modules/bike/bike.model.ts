@@ -17,20 +17,75 @@ const insuranceSchema = new Schema<IInsurance>(
 
 const bikeSchema = new Schema<IBike>(
   {
-    userEmail: { type: String, required: true, ref: "User" },
-    name: { type: String, required: true },
-    price: { type: Number, required: true },
-    quantity: { type: Number, required: true },
-    releaseDate: { type: String, required: true },
-    brand: { type: String, required: true },
-    model: { type: String, required: true },
-    size: { type: String, required: true },
-    type: { type: String, required: true },
-    color: { type: String, required: true },
-    mileage: { type: Number, required: true },
-    isDeleted: { type: Boolean, default: false },
-    isVisible: { type: Boolean, default: true },
-    insurance: { type: insuranceSchema },
+    userEmail: {
+      type: String,
+      required: true,
+      ref: "User",
+    },
+
+    name: {
+      type: String,
+      required: true,
+    },
+
+    price: {
+      type: Number,
+      required: true,
+    },
+
+    quantity: {
+      type: Number,
+      required: true,
+    },
+
+    releaseDate: {
+      type: String,
+      required: true,
+    },
+
+    brand: {
+      type: String,
+      required: true,
+    },
+
+    model: {
+      type: String,
+      required: true,
+    },
+
+    size: {
+      type: String,
+      required: true,
+    },
+
+    type: {
+      type: String,
+      required: true,
+    },
+
+    color: {
+      type: String,
+      required: true,
+    },
+
+    mileage: {
+      type: Number,
+      required: true,
+    },
+
+    isDeleted: {
+      type: Boolean,
+      default: false,
+    },
+
+    isVisible: {
+      type: Boolean,
+      default: true,
+    },
+
+    insurance: {
+      type: insuranceSchema,
+    },
   },
   {
     timestamps: true,

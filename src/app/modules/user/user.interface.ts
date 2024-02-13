@@ -7,7 +7,7 @@ export interface IUser {
   address: string;
   contact: string;
   isActive?: boolean;
-  role?: "user";
+  role: "buyer" | "seller" | "admin";
 }
 
 export interface UserModel extends Model<IUser> {

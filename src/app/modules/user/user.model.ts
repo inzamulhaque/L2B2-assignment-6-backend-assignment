@@ -16,7 +16,8 @@ const userSchema = new Schema<IUser, UserModel>(
     },
     password: {
       type: String,
-      required: [true, "Please provide passwored"],
+      required: [true, "Please provide password"],
+      select: 0,
     },
     address: {
       type: String,
@@ -33,7 +34,8 @@ const userSchema = new Schema<IUser, UserModel>(
     },
     role: {
       type: String,
-      default: "user",
+      required: [true, "Please provide user role"],
+      enum: ["buyer", "seller", "admin"],
     },
   },
   {

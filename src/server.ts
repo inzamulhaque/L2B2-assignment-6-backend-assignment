@@ -2,6 +2,7 @@ import { Server } from "http";
 import app from "./app";
 import mongoose from "mongoose";
 import config from "./app/config";
+import seedAdmin from "./app/DB";
 const port = process.env.PORT || 7000;
 
 let server: Server;
@@ -9,6 +10,8 @@ let server: Server;
 async function main() {
   try {
     await mongoose.connect(config.db_uri as string);
+
+    seedAdmin();
 
     server = app.listen(port, () => {
       console.log(`http://localhost:${port}`);
