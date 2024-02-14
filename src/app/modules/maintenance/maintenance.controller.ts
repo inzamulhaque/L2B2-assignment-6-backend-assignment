@@ -2,6 +2,7 @@ import httpStatus from "http-status";
 import catchAsync from "../../utils/catchAsync";
 import sendResponse from "../../utils/sendResponse";
 import {
+  acceptMaintenanceRequestIntoDB,
   createMaintenanceRequestIntoDB,
   getAllMaintenanceRequestFromDB,
   getMyMaintenanceRequestFromDB,
@@ -44,8 +45,23 @@ const getMyMaintenanceRequest = catchAsync(async (req, res) => {
   });
 });
 
+const acceptMaintenanceRequest = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const { email } = req.user;
+
+  const result = await acceptMaintenanceRequestIntoDB(id, email);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Maintenance request is retrieved successfully",
+    data: result,
+  });
+});
+
 export {
   getAllMaintenanceRequest,
   createMaintenanceRequest,
   getMyMaintenanceRequest,
+  acceptMaintenanceRequest,
 };

@@ -19,8 +19,24 @@ const getMyMaintenanceRequestFromDB = async (buyerEmail: string) => {
   return result;
 };
 
+const acceptMaintenanceRequestIntoDB = async (
+  id: string,
+  sellerEmail: string
+) => {
+  const result = await Maintenance.findByIdAndUpdate(
+    id,
+    {
+      sellerEmail,
+      status: "accepted",
+    },
+    { new: true }
+  );
+  return result;
+};
+
 export {
   getAllMaintenanceRequestFromDB,
   createMaintenanceRequestIntoDB,
   getMyMaintenanceRequestFromDB,
+  acceptMaintenanceRequestIntoDB,
 };
