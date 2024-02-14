@@ -36,7 +36,7 @@ router.delete(
 
 router.patch(
   "/update-bike/:id",
-  auth(),
+  auth(USER_ROLE.seller, USER_ROLE.admin),
   validateRequest(updateBikeValidationSchema),
   auth(USER_ROLE.seller, USER_ROLE.admin),
   updateBike

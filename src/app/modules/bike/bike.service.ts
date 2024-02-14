@@ -9,8 +9,8 @@ const getAllBikeSFromDB = async (query: Record<string, unknown>) => {
   return result;
 };
 
-const createBikeIntoDB = async (payload: Partial<IBike>, userEmail: string) => {
-  const result = await Bike.create({ ...payload, userEmail });
+const createBikeIntoDB = async (payload: Partial<IBike>, sellerEmail: string) => {
+  const result = await Bike.create({ ...payload, sellerEmail });
   return result;
 };
 

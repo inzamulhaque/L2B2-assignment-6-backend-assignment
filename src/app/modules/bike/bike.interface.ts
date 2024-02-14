@@ -5,7 +5,7 @@ export interface IInsurance {
 }
 
 export interface IBike {
-  userEmail: string;
+  sellerEmail: string;
   name: string;
   price: number;
   quantity: number;

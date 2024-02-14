@@ -17,7 +17,7 @@ const insuranceSchema = new Schema<IInsurance>(
 
 const bikeSchema = new Schema<IBike>(
   {
-    userEmail: {
+    sellerEmail: {
       type: String,
       required: true,
       ref: "User",
