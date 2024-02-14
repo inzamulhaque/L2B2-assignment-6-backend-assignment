@@ -9,7 +9,15 @@ const getAllBikeSFromDB = async (query: Record<string, unknown>) => {
   return result;
 };
 
-const createBikeIntoDB = async (payload: Partial<IBike>, sellerEmail: string) => {
+const getBikeByIdFromDB = async (id: string) => {
+  const result = await Bike.findById(id);
+  return result;
+};
+
+const createBikeIntoDB = async (
+  payload: Partial<IBike>,
+  sellerEmail: string
+) => {
   const result = await Bike.create({ ...payload, sellerEmail });
   return result;
 };
@@ -46,6 +54,7 @@ const bulkRemoveFromDB = async (payload: string[]) => {
 
 export {
   getAllBikeSFromDB,
+  getBikeByIdFromDB,
   createBikeIntoDB,
   removeBikeFromDB,
   updateBikeIntoDB,

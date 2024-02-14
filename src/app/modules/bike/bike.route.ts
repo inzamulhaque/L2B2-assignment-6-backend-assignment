@@ -7,6 +7,7 @@ import bikeValidationSchema, {
 import {
   createBike,
   getAllBikes,
+  getBikeById,
   removeBike,
   removeBulk,
   updateBike,
@@ -19,6 +20,12 @@ router.get(
   "/",
   auth(USER_ROLE.seller, USER_ROLE.admin, USER_ROLE.buyer),
   getAllBikes
+);
+
+router.get(
+  "/:id",
+  auth(USER_ROLE.seller, USER_ROLE.admin, USER_ROLE.buyer),
+  getBikeById
 );
 
 router.post(

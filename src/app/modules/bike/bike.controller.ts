@@ -5,12 +5,26 @@ import {
   bulkRemoveFromDB,
   createBikeIntoDB,
   getAllBikeSFromDB,
+  getBikeByIdFromDB,
   removeBikeFromDB,
   updateBikeIntoDB,
 } from "./bike.service";
 
 const getAllBikes = catchAsync(async (req, res) => {
   const result = await getAllBikeSFromDB(req.query);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "Get all bikes",
+    data: result,
+  });
+});
+
+const getBikeById = catchAsync(async (req, res) => {
+  const { id } = req.params;
+
+  const result = await getBikeByIdFromDB(id);
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -68,4 +82,11 @@ const removeBulk = catchAsync(async (req, res) => {
   });
 });
 
-export { getAllBikes, createBike, removeBike, updateBike, removeBulk };
+export {
+  getAllBikes,
+  getBikeById,
+  createBike,
+  removeBike,
+  updateBike,
+  removeBulk,
+};
