@@ -2,7 +2,6 @@ import httpStatus from "http-status";
 import sendResponse from "../../utils/sendResponse";
 import { loginUserService, refreshTokenService } from "./auth.service";
 import catchAsync from "../../utils/catchAsync";
-import config from "../../config";
 
 const loginUser = catchAsync(async (req, res) => {
   const result = await loginUserService(req.body);

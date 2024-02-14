@@ -1,6 +1,16 @@
 import { ISale } from "./sale.interface";
 import Sale from "./sale.model";
 
+const getAllSalesDetailsFromDB = async () => {
+  const result = await Sale.find();
+  return result;
+};
+
+const getSalesDetailsByIdFromDB = async (id: string) => {
+  const result = await Sale.findById(id);
+  return result;
+};
+
 const createOrderIntoDB = async (
   payload: Partial<ISale>,
   userEmail: string
@@ -45,4 +55,9 @@ const getSaleHistoryFromDB = async (time: string) => {
   return result;
 };
 
-export { createOrderIntoDB, getSaleHistoryFromDB };
+export {
+  getAllSalesDetailsFromDB,
+  getSalesDetailsByIdFromDB,
+  createOrderIntoDB,
+  getSaleHistoryFromDB,
+};
