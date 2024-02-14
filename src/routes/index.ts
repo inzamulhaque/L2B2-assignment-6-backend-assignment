@@ -4,6 +4,7 @@ import UserRoutes from "../app/modules/user/user.route";
 import bikeRouter from "../app/modules/bike/bike.route";
 import authRouter from "../app/modules/auth/auth.route";
 import saleRouter from "../app/modules/sale/sale.route";
+import maintenanceRouter from "../app/modules/maintenance/maintenance.route";
 
 const router: Router = Router();
 
@@ -23,6 +24,10 @@ const moduleRouters: IModuleRouter[] = [
   {
     path: "/sales",
     route: saleRouter,
+  },
+  {
+    path: "/maintenance",
+    route: maintenanceRouter,
   },
 ];
 

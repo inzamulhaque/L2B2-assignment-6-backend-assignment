@@ -22,7 +22,7 @@ router.get(
 
 router.post(
   "/order",
-  auth(USER_ROLE.seller, USER_ROLE.admin, USER_ROLE.buyer),
+  auth(USER_ROLE.seller, USER_ROLE.admin),
   validateRequest(saleValidationSchema),
   createOrder
 );
