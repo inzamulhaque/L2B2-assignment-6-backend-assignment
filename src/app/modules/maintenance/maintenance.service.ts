@@ -9,4 +9,9 @@ const createMaintenanceRequestIntoDB = async (
   return result;
 };
 
-export { createMaintenanceRequestIntoDB };
+const getMyMaintenanceRequestFromDB = async (buyerEmail: string) => {
+  const result = await Maintenance.find({ buyerEmail });
+  return result;
+};
+
+export { createMaintenanceRequestIntoDB, getMyMaintenanceRequestFromDB };
