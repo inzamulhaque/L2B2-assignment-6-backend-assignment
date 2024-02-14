@@ -1,7 +1,7 @@
 import { Types } from "mongoose";
 
 export interface ISale {
-  userEmail: string;
+  sellerEmail: string;
   bikeId: Types.ObjectId;
   buyerName: string;
   date: string;

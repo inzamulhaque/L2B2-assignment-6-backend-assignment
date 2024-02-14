@@ -15,6 +15,12 @@ const router: Router = Router();
 router.get("/", auth(USER_ROLE.seller, USER_ROLE.admin), getAllSalesDetails);
 
 router.get(
+  "/sales-history",
+  auth(USER_ROLE.seller, USER_ROLE.admin),
+  getSaleHistory
+);
+
+router.get(
   "/:id",
   auth(USER_ROLE.seller, USER_ROLE.admin),
   getSalesDetailsById
@@ -25,12 +31,6 @@ router.post(
   auth(USER_ROLE.seller, USER_ROLE.admin),
   validateRequest(saleValidationSchema),
   createOrder
-);
-
-router.get(
-  "/sales-history",
-  auth(USER_ROLE.seller, USER_ROLE.admin),
-  getSaleHistory
 );
 
 const saleRouter = router;

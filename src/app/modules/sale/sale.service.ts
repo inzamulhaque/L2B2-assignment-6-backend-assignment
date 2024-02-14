@@ -13,9 +13,9 @@ const getSalesDetailsByIdFromDB = async (id: string) => {
 
 const createOrderIntoDB = async (
   payload: Partial<ISale>,
-  userEmail: string
+  sellerEmail: string
 ) => {
-  const result = await Sale.create({ ...payload, userEmail });
+  const result = await Sale.create({ ...payload, sellerEmail });
 
   return result;
 };

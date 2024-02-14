@@ -33,6 +33,7 @@ const getSalesDetailsById = catchAsync(async (req, res) => {
 
 const createOrder = catchAsync(async (req, res) => {
   const { email } = req.user;
+
   const result = await createOrderIntoDB(req.body, email);
 
   sendResponse(res, {
@@ -45,6 +46,7 @@ const createOrder = catchAsync(async (req, res) => {
 
 const getSaleHistory = catchAsync(async (req, res) => {
   const { time } = req.query;
+
   const result = await getSaleHistoryFromDB(time as string);
 
   sendResponse(res, {

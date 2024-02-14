@@ -6,7 +6,7 @@ import httpStatus from "http-status";
 
 const saleSchema = new Schema<ISale>(
   {
-    userEmail: {
+    sellerEmail: {
       type: String,
       required: true,
       ref: "User",
