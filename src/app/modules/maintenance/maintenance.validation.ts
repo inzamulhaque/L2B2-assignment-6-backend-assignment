@@ -9,6 +9,5 @@ export const maintenanceValidationSchema = z.object({
     nextScheduled: z.string(),
     serviceDetails: z.string(),
     notes: z.string().optional(),
-    status: z.enum(["pending", "accepted"]).optional(),
   }),
 });
