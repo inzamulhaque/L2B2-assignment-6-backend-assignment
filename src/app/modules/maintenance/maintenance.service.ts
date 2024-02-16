@@ -2,7 +2,7 @@ import { IMaintenance } from "./maintenance.interface";
 import Maintenance from "./maintenance.model";
 
 const getAllMaintenanceRequestFromDB = async () => {
-  const result = await Maintenance.find();
+  const result = await Maintenance.find().populate("bikeId");
   return result;
 };
 
