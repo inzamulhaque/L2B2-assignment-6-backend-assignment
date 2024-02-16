@@ -4,7 +4,7 @@ export interface IMaintenance {
   bikeId: Types.ObjectId;
   buyerEmail: string;
   sellerEmail?: string;
-  date?: string;
+  date: string;
   nextScheduled: string;
   serviceDetails: string;
   notes?: string;

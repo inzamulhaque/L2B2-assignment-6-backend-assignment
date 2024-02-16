@@ -20,6 +20,11 @@ const maintenanceSchema = new Schema<IMaintenance>(
       ref: "User",
     },
 
+    date: {
+      type: String,
+      required: [true, "please provide last maintenance date"],
+    },
+
     nextScheduled: {
       type: String,
       required: [true, "please provide next scheduled"],
