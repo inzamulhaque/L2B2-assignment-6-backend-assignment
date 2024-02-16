@@ -15,7 +15,7 @@ const createMaintenanceRequestIntoDB = async (
 };
 
 const getMyMaintenanceRequestFromDB = async (buyerEmail: string) => {
-  const result = await Maintenance.find({ buyerEmail });
+  const result = await Maintenance.find({ buyerEmail }).populate("bikeId");
   return result;
 };
 
