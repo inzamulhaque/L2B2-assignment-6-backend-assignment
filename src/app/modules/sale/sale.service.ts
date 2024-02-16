@@ -7,7 +7,7 @@ const getAllSalesDetailsFromDB = async () => {
 };
 
 const getSalesDetailsByIdFromDB = async (id: string) => {
-  const result = await Sale.findById(id);
+  const result = await Sale.findById(id).populate("bikeId");
   return result;
 };
 
