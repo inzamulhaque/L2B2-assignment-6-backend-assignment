@@ -1,12 +1,12 @@
 # Bike Management Dashboard
 
-## [Assignment-5 || FullStack || Server](https://bike-management-dashboard-server.vercel.app/)
+## [Assignment-6 || FullStack || Server](https://bike-management-a6.vercel.app/)
 
-## [Assignment-5 || FullStack || Client](https://l2b2-fullstack-a5.netlify.app/)
+## [Assignment-6 || FullStack || Client](https://l2b2-bike-management-a6.netlify.app)
 
 ### [API Documentation](https://documenter.getpostman.com/view/32025135/2s9YyqihG3)
 
-### [Video Overview](https://www.youtube.com/watch?v=4re9vTwF7sQ)
+### [Video Overview](https://youtu.be/Rc_FXOuLRwM)
 
 In this assigment we use some advanced technology. Backend technology list in below:
 
@@ -24,6 +24,7 @@ In this assigment we use some advanced technology. Backend technology list in be
 
 - User SignUp
 - User SignIn
+- User Dashboard Base On User Role
 - Add New Bike Into DataBase
 - Add New Bike Into DataBase Using Existing Bike Details
 - Update Bike Information Into DataBase
@@ -31,6 +32,8 @@ In this assigment we use some advanced technology. Backend technology list in be
 - Delete Bike From DataBase
 - Manage Sales
 - Get Sales History
+- Request For Maintenance
+- Accept Maintenance Request
 
 ## How to run the application locally?
 
@@ -38,9 +41,9 @@ If you need to run this application locally so follow this process.
 
 Clone this application from GitHub. using this code:
 
-`git clone https://github.com/Porgramming-Hero-web-course/l2b2-full-stack-a5-server-side-inzamulhaque.git`  
+`git clone https://github.com/Porgramming-Hero-web-course/l2-b2-assignment-6-backend-inzamulhaque.git`  
 Or  
-`git clone git@github.com:Porgramming-Hero-web-course/l2b2-full-stack-a5-server-side-inzamulhaque.git`
+`git clone git@github.com:Porgramming-Hero-web-course/l2-b2-assignment-6-backend-inzamulhaque.git`
 
 If applications are cloned successfully applications open with VSCode or author text editor. Open the terminal or command prompt at this project. Install all necessary dependencies.  
 For installing all dependencies run this command:  
@@ -60,6 +63,11 @@ JWT_ACCESS_SECRET
 JWT_ACCESS_EXPIRES_IN
 JWT_REFRESH_SECRET
 JWT_REFRESH_EXPIRES_IN
+ADMIN_NAME
+ADMIN_EMAIL
+ADMIN_PASSWORD
+ADMIN_ADDRESS
+ADMIN_CONTACT
 ```
 
 run application in a development environment:  
